@@ -291,6 +291,15 @@ body{
   align-items:center;
   
 }
+
+.contentBlock{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+
 #sectionHero{
 height:calc(100vh);
 }
@@ -370,8 +379,21 @@ heroSliderContent{
   width:90%;
   height:100%;
 }
+.imageFrame{
+  position:relative;
+  padding-top:70%;
+  margin:auto;
+}
+.frameWrapper{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background: var(--blue);
 
-.heroSlederControler{
+}
+
+.heroSliderControler{
     position: absolute;
     right: 2%;
     top: 50%;
@@ -433,7 +455,7 @@ margin:auto;
 /*   width: calc( 10.4% - 20px ); */
   margin:7px;
   border:1px solid;
-  border-color:#ccc;
+  border-color:var(--yellow);
   display:block;
   position:relative;
   border-radius:300px;
@@ -443,15 +465,18 @@ margin:auto;
 /*   opacity:0; */
 /*   display:none; */
 }
-.geoTile::after{
+.geoTile:after{
   content: '';
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   top: 0%;
   left: 0;
   background: var(--orange);
   z-index: 999;
+  border:1px solid;
+  border-radius:300px;
+  border-color:var(--yellow);
 }
 
 .geoTile.geotileActive{
@@ -460,6 +485,9 @@ margin:auto;
 /*   display:block!important; */
 /* width: 54%!important; */
 }
+.geoTile.geotileActive:after, .geoTile:hover:after{
+display:none;
+  }
 .geoTile.geotileActive .material-icons{
   color:red;
   transform: translate(-50%, 0px) rotate(
