@@ -119,8 +119,6 @@ function doorClose() {
 }
 
 
-
-
 heroSlideShowFunction();
 function heroSlideShowFunction() {
   var nextSlid = document.getElementById("nextSlide").addEventListener("click", siteShow);
