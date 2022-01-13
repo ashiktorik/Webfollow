@@ -557,7 +557,6 @@ heroSliderContent {
   background-color: transparent;
   transition: 1.5s ease;
 }
-
 .vp-item.active{
   /* transform: rotateY(300deg); */
   -webkit-backface-visibility: hidden;
