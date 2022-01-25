@@ -128,12 +128,13 @@ function heroSlideShowFunction() {
   
   var slideIndex = 1;
   let firstSlide = 0;
-  let slideTimer = 7000;
+  let slideTimer;
   var slideTimeOut;
   heroSlideShow();
 
   function siteShow() {
     heroSlideShow(slideIndex += 1);
+    slideTimer = 7000;
     firstSlide = 1;
     clearTimeout(slideTimeOut);
   }
