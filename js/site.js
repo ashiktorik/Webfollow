@@ -120,40 +120,44 @@ function doorClose() {
 
 
 heroSlideShowFunction();
+
 function heroSlideShowFunction() {
   var nextSlid = document.getElementById("nextSlide").addEventListener("click", siteShow);
   var prevSlid = document.getElementById("prevSlide").addEventListener("click", siteShowPrev);
 
-
+  
   var slideIndex = 1;
-  var firstSlide = 0;
-  heroSlideShow()
+  let firstSlide = 0;
+  let slideTimer = 7000;
+  var slideTimeOut;
+  heroSlideShow();
 
   function siteShow() {
     heroSlideShow(slideIndex += 1);
     firstSlide = 1;
-    console.log(firstSlide);
+    clearTimeout(slideTimeOut);
   }
 
   function siteShowPrev() {
     heroSlideShow(slideIndex += -1);
+    firstSlide = 0;
     // console.log(slideIndex);
+    clearTimeout(slideTimeOut);
   }
- 
-    function slideAuto() {
-      if (firstSlide === 1) {
-        slideIndex++;
-        setTimeout(slideAuto, 7000);
-        console.log("a" + slideIndex);
-      }
-    };
+
 
   function heroSlideShow() {
     var grandparentSlide = document.getElementById("slideContainer");
     var parentSlide = grandparentSlide.getElementsByClassName("heroSlide");
-
     for (var i = 0; i < parentSlide.length; i++) {
       parentSlide[i].classList.remove("active");
+      numOfSlide = parentSlide.length;
+    }
+    if (firstSlide === 1) {
+      slideIndex++;
+      console.log("a" + slideIndex);
+      console.log(firstSlide);
+
     }
     if (slideIndex > parentSlide.length) {
       slideIndex = 1;
@@ -163,31 +167,36 @@ function heroSlideShowFunction() {
     }
     parentSlide[slideIndex - 1].classList.add("active");
     document.getElementById("sCount").innerText = slideIndex;
+    slideTimeOut = setTimeout(heroSlideShow, slideTimer); // Change image every n seconds
+    getRandom(clearTimeout(randomTimeout));
     colorePick();
-    // getRandom();
-    setTimeout(heroSlideShow, 7000); // Change image every 2 seconds
-  }
+    console.log(randomTimeout);
+    textSpliter();
 
+  }
+return 0;
 }
 
 
-getRandom();
-var randomInterval;
-var randomNum;
-function getRandom() {
-  var i;
-  randomNum = Math.floor(Math.random() * (24 - 0)) + 0;
-  randomInterval = Math.floor(Math.random() * (300 - 50)) + 50;
-  var pslides = document.querySelector(".active #miniDisplay");
-  var slides = pslides.getElementsByClassName("vp-item");
-  for (i = randomNum; i < slides.length; i++) {
-    slides[i].classList.remove("active");
-  }
-  slides[randomNum].classList.add("active");
-  setTimeout(getRandom, 360); // Change image every n seconds 
-}
+// var randomInterval;
+// var randomNum;
+// var randomTimeout;
 
-colorePick();
+// // getRandom();
+//  function getRandom() {
+//   var i;
+//   randomNum = Math.floor(Math.random() * (24 - 0)) + 0;
+//   randomInterval = Math.floor(Math.random() * (300 - 50)) + 50;
+//   var pslides = document.querySelector(".active #miniDisplay");
+//   var slides = pslides.getElementsByClassName("vp-item");
+//   for (i = 24; i < slides.length; i++) {
+//     slides[i].classList.remove("active");
+//   }
+//   slides[randomNum].classList.add("active");
+//   randomTimeout = setTimeout(getRandom, randomInterval); // Change image every n seconds
+// }
+
+// colorePick();
 function colorePick() {
   var grandparentSlide = document.getElementById("slideContainer");
   // var parentSlide = grandparentSlide.getElementsByClassName("active");
@@ -203,7 +212,7 @@ function colorePick() {
 
   function draw() {
     var ctx = document.querySelector(".active #canvas").getContext('2d');
-    let prevColor;
+    var prevColor;
     let newColor;
     var img = new Image();
     img.onload = function () {
@@ -220,11 +229,13 @@ function colorePick() {
       } else if (p[0] !== [0] &&
         p[1] !== [0] && p[2] !== [0] && p[3] !== [0]) {
         newColor = rgba;
-        prevColor = rgba;
         let root = document.documentElement;
         root.style.setProperty('--colorChange', newColor);
+        root.style.setProperty('--colorPrev', prevColor);
+        prevColor = newColor;
+        console.log(prevColor)
       }
     };
     img.src = document.querySelector(".active #bgColorSource").src;
   }
-}
+};

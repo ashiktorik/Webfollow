@@ -19,6 +19,7 @@
 }
 
 :root {
+  --colorPrev: unset;
   --colorChange: unset;
   --tomato: rgb(255, 99, 71);
   --red: #EB3B5A;
@@ -439,6 +440,7 @@ heroSliderContent {
  
 
 .slideBg {
+  background-color: var(--colorPrev);
   position: absolute;
   width: 100%;
   height:100%;
@@ -539,7 +541,7 @@ heroSliderContent {
 
 .vp-item,
 .vp__lines {
-  border: .1px solid transparent;
+  /* border: .1px solid var(--colorChange); */
   /* border-radius: 0.2rem; */
 }
 
@@ -570,16 +572,21 @@ width: 100%;
 height: 100%;
 position: absolute;
 background-color: var(--colorChange);
+/* background-color: #ccc; */
 z-index: 1;
 transform: scale(1);
-opacity: .7;
+opacity: 1;
 
 }
 .vp-item.active:after{
   /* animation: sweep 1.5s linear; */
-  transform: scale(1);
-  transition: linear .5s;
-  opacity: .0;
+transform: scale(5);
+transition: linear .5s;
+opacity: 1;
+left: 0px;;
+width: 0%;
+height: 0%;
+z-index: 1;
   }
 
 #heroContentcard{
