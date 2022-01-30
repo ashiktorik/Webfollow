@@ -26,6 +26,7 @@
   --slideBgImage: unset;
   --colorPrev: unset;
   --colorChange: unset;
+  --accentColor: unset;
   --tomato: rgb(255, 99, 71);
   --red: #EB3B5A;
   --orange: #FA8231;
@@ -407,8 +408,8 @@ section.section {
 #sectionHero h1 {
   color: #fff;
   text-shadow: 5px 3px 0px hsla(0, 0%, 100%, 0.3);
-  color: var(--colorChange);
-  filter: saturate(7.5) invert(.3);
+  color: var(--accentColor);
+  filter: saturate(30) invert(.21);
 }
 #sectionHero h4{
   color: #fff;
@@ -749,13 +750,14 @@ heroSliderContent {
 
 .slideFullContent .section {
 border-bottom: 1px solid;
-min-height: 50px;
+min-height: 50vh;
 display: flex;
 align-items: center;
 position: -webkit-sticky;
 position: sticky;
 top: 0;
 overflow: auto;
+background-color: var(--offwhite);
 }
 
 .slideContentSection.hero{
@@ -763,10 +765,13 @@ min-height: calc(100vh - var(--navHeight)*2);
 background-image: var(--slideBgImage);
 background-repeat: no-repeat;
 background-size: cover;
-position: relative;
+/* position: relative; */
 display: flex;
 align-items: center;
 justify-content: center;
+position: -webkit-sticky;
+position: sticky;
+top: 0;
 }
 .slideBgOverlay{
   position: absolute;
