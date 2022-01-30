@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Monoton&family=Poller+One&family=Sonsie+One&display=swap');
 
-@import url('/font/Proxima-Nova-Font.otf');
+@import url('/font/body_font.otf');
 
 @font-face {
   font-family: 'Charmonman', cursive;
   font-family: 'Monoton', cursive;
   font-family: 'Poller One', cursive;
   font-family: 'Sonsie One', cursive;
+}
+
+@font-face {
   font-family: 'Proxima Nova', sans-serif;
+  src: url(/font/body_font.otf);
 }
 
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  /* src: url(https://example.com/MaterialIcons-Regular.eot); */
+  src: url(https://example.com/MaterialIcons-Regular.eot);
   /* For IE6-8 */
 }
 
