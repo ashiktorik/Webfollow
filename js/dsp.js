@@ -59,7 +59,7 @@
       heroSlideShow();
 
       function slideNext() {
-       
+
         if (firstSlide === 0) {
           firstSlide = 1;
         }
@@ -86,8 +86,8 @@
         slideAutoTime++;
         if (firstSlide === 1) {
           if (slideAutoTime > 1) {
-           if (contentOpen === 0){ 
-             slideIndex++;
+            if (contentOpen === 0) {
+              slideIndex++;
             }
           }
           document.querySelector(".prevSlide span").innerHTML = "play_disabled";
