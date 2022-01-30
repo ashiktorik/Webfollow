@@ -1,13 +1,6 @@
-    var randomInterval;
-    var randomNum;
-    var randomTimeout;
-    var latters;
+    var randomInterval, randomNum, randomTimeout, latters, word2, chars, slideTimeOut;
     var Chars = textSpliter();
-    var word2;
-    var chars;
     var contentOpen = 0;
-    var slideTimeOut;
-
     function textSpliter() {
       const str = document.querySelector(".active .heroContentBox h1").textContent;
       // const str = "text font";
