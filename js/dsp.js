@@ -5,6 +5,8 @@
     var Chars = textSpliter();
     var word2;
     var chars;
+    var contentOpen = 0;
+    var slideTimeOut;
 
     function textSpliter() {
       const str = document.querySelector(".active .heroContentBox h1").textContent;
@@ -12,26 +14,37 @@
       const words = str.split(' ');
       word2 = words[0];
       chars = word2.split('');
-      // latters = chars[0];
-      // latters = "z";
-      // console.log(latters);
-      // expected output: "k"
-
-      
- const delay = async (ms = 700) =>
- new Promise(resolve => setTimeout(resolve, ms))
-async function textAfter(){
-   for (let i = 0; i < word2.length; i += 1) {
-       latters = chars[i];
-    console.log(chars[i])
-    await delay(700)
-  }
- }
- textAfter();
-
-    
+      const delay = async (ms = 1000) =>
+        new Promise(resolve => setTimeout(resolve, ms))
+      async function textAfter() {
+        for (let i = 0; i < word2.length; i += 1) {
+          latters = chars[i];
+          console.log(chars[i])
+          await delay(1000)
+        }
+      }
+      textAfter();
       return latters;
-    };
+    }
+
+
+    function slideHeroLernMore() {
+      document.querySelector(".heroSliderControler").classList.add("open");
+      document.querySelector(".active .slideFullContent").classList.add("open");
+      clearTimeout(slideTimeOut);
+      contentOpen = 1;
+      return contentOpen;
+    }
+
+    document.querySelector(".heroSliderControler .slideCounter").addEventListener("click", slideController);
+
+    function slideController() {
+      document.querySelector(".heroSliderControler").classList.remove("open");
+      document.querySelector(".active .slideFullContent").classList.remove("open");
+      contentOpen = 0;
+      return contentOpen;
+    }
+
 
     heroSlideShowFunction();
 
@@ -42,11 +55,11 @@ async function textAfter(){
       var slideIndex = 1;
       var firstSlide = 0;
       var slideTimer = 7000;
-      var slideTimeOut;
       var slideAutoTime = 0;
       heroSlideShow();
 
       function slideNext() {
+       
         if (firstSlide === 0) {
           firstSlide = 1;
         }
@@ -58,7 +71,8 @@ async function textAfter(){
         heroSlideShow(slideIndex += -1);
         clearTimeout(slideTimeOut);
         firstSlide = 0;
-        // console.log("slideTimer" + slideTimer);
+        document.querySelector(".prevSlide span").innerHTML = "north";
+        console.log("slideTimer" + slideTimer);
       }
 
       function heroSlideShow() {
@@ -72,10 +86,14 @@ async function textAfter(){
         slideAutoTime++;
         if (firstSlide === 1) {
           if (slideAutoTime > 1) {
-            slideIndex++;
+           if (contentOpen === 0){ 
+             slideIndex++;
+            }
           }
+          document.querySelector(".prevSlide span").innerHTML = "play_disabled";
           // console.log("slideIndex: " + slideIndex);
           // console.log("firstSlide" + firstSlide);
+          console.log(contentOpen)
         }
 
 
@@ -88,6 +106,7 @@ async function textAfter(){
         }
         parentSlide[slideIndex - 1].classList.add("active");
         document.getElementById("sCount").innerText = slideIndex;
+        document.querySelector(".active .heroContentBox a").addEventListener("click", slideHeroLernMore);
         slideTimeOut = setTimeout(heroSlideShow, slideTimer); // Change image every n seconds
         miniDsp(clearTimeout(randomTimeout));
         colorePick();
@@ -106,40 +125,23 @@ async function textAfter(){
       var i;
       let j;
       var Char = dspChars();
-      randomNum = Math.floor(Math.random() * (5 - 1)) + 1;
+      randomNum = Math.floor(Math.random() * (7 - 1)) + 1;
       var pslides = document.querySelector(".active #miniDisplay");
       var slides = pslides.getElementsByClassName("dspPixel");
       for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
         for (j = 0; j < Chars.length; j++) {
-          slides[i].classList.remove("active");
           slides[i].style.transform = ("scale(1)");
           var frts = Chars[j];
           // console.log(Chars);
           slides[frts].classList.add("active");
-          slides[frts].style.transform = ("scale("+randomNum+")");
+          slides[frts].style.transform = ("scale(" + randomNum + ")");
+          slides[frts].style.boxShadow = ("0px 0px " + randomNum + "px) #000 ");
         }
       }
       randomTimeout = setTimeout(miniDsp, 1000);
     }
 
-
-    // var randomInterval;
-    // var randomNum;
-    // var randomTimeout;
-
-    // // miniDsp();
-    //  function miniDsp() {
-    //   var i;
-    //   randomNum = Math.floor(Math.random() * (24 - 0)) + 0;
-    //   randomInterval = Math.floor(Math.random() * (300 - 50)) + 50;
-    //   var pslides = document.querySelector(".active #miniDisplay");
-    //   var slides = pslides.getElementsByClassName("dspPixel");
-    //   for (i = 24; i < slides.length; i++) {
-    //     slides[i].classList.remove("active");
-    //   }
-    //   slides[randomNum].classList.add("active");
-    //   randomTimeout = setTimeout(miniDsp, randomInterval); // Change image every n seconds
-    // }
 
     colorePick();
 
@@ -159,6 +161,7 @@ async function textAfter(){
       function draw() {
         var ctx = document.querySelector(".active #canvas").getContext('2d');
         var prevColor;
+        let bgImg;
         let newColor;
         var img = new Image();
         img.onload = function () {
@@ -178,21 +181,27 @@ async function textAfter(){
             let root = document.documentElement;
             root.style.setProperty('--colorChange', newColor);
             root.style.setProperty('--colorPrev', prevColor);
+            root.style.setProperty('--slideBgImage', bgImg);
+            // console.log(bgImg);
             prevColor = newColor;
             // console.log(prevColor)
+
           }
         };
         img.src = document.querySelector(".active #bgColorSource").src;
+        bgImg = "url(" + img.src;
+        document.querySelector(".active .slideMainImageWrap img").src = img.src;
       }
       // setTimeout(colorePick, 500);
     };
 
 
-
-
     function dspChars() {
 
       if (latters === "a") {
+        Chars = [1, 2, 3, 5, 9, 10, 11, 12, 13, 14, 15, 19, 20, 24, ];
+      }
+      if (latters === "A") {
         Chars = [1, 2, 3, 5, 9, 10, 11, 12, 13, 14, 15, 19, 20, 24, ];
       }
       if (latters === "b") {
@@ -239,6 +248,9 @@ async function textAfter(){
       if (latters === "k") {
         Chars = [0, 3, 5, 7, 10, 11, 15, 17, 20, 23, ];
       }
+      if (latters === "K") {
+        Chars = [0, 3, 5, 7, 10, 11, 15, 17, 20, 23, ];
+      }
       if (latters === "l") {
         Chars = [0, 5, 10, 15, 19, 20, 21, 22, 23, 24, ];
       }
@@ -269,7 +281,7 @@ async function textAfter(){
       }
 
       if (latters === "s") {
-        Chars = [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 24 ];
+        Chars = [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 24];
       }
 
       if (latters === "t") {
@@ -286,16 +298,25 @@ async function textAfter(){
       if (latters === "w") {
         Chars = [0, 4, 5, 9, 10, 14, 15, 17, 19, 21, 23, ];
       }
+      if (latters === "W") {
+        Chars = [0, 4, 5, 9, 10, 14, 15, 17, 19, 21, 23, ];
+      }
 
       if (latters === "x") {
         Chars = [0, 4, 6, 8, 12, 16, 18, 20, 24, ];
       }
       if (latters === "y") {
-        Chars = [0, 4, 6, 8, 12, 17,22,  ];
+        Chars = [0, 4, 6, 8, 12, 17, 22, ];
       }
 
       if (latters === "z") {
-        Chars = [0,1,2,3, 4, 8,9, 12, 15, 16, 20 ,21,22,23, 24, ];
+        Chars = [0, 1, 2, 3, 4, 8, 9, 12, 15, 16, 20, 21, 22, 23, 24, ];
       }
+
+      if (latters === "first") {
+        Chars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, ];
+      }
+
+
       return Chars;
     }
