@@ -1,9 +1,8 @@
 var randomInterval, randomNum, randomTimeout, latters, firstWord, chars, slideTimeOut, textTimeOut, colorpicTimeOut, timeChars;
-var Chars;
+var Chars = textAfter();
 var slideTimeOut
 var contentOpen = 0;
 var slideTimer = 7000;
-var clicked = false;
 
 
 
@@ -38,42 +37,23 @@ var slideAutoTime = 0;
 heroSlideShow(slideIndex);
 
 function slideNext() {
-  if(!clicked)
-{
-    clicked = true;
-    if (firstSlide === 0) {
-      document.querySelector(".prevSlide span").innerHTML = "play_disabled";
-        firstSlide = 1;
-    }
-    heroSlideShow(slideIndex += 1, slideAutoTime = 0);
-  
-    setTimeout(function(){
 
-        clicked = false;
-    }, 1000);
-}
+  if (firstSlide === 0) {
+    document.querySelector(".prevSlide span").innerHTML = "play_disabled";
+      firstSlide = 1;
+  }
+  clearTimeout(slideTimeOut);
+  heroSlideShow(slideIndex += 1, slideAutoTime = 0);
+
   // return slideNext;
 }
 
 function slidePrevious() {
-  if(!clicked)
-  {
-      clicked = true;
-  if(firstSlide === 1){
-    firstSlide = 0;
-  }
-  else{
-    heroSlideShow(slideIndex += -1);
-  }
+  heroSlideShow(slideIndex += -1);
   clearTimeout(slideTimeOut);
+  firstSlide = 0;
   document.querySelector(".prevSlide span").innerHTML = "north";
   // console.log("slideTimer" + slideTimer);
-    
-  setTimeout(function(){
-
-    clicked = false;
-}, 1000);
-}
   return slidePrevious;
 }
 
@@ -84,10 +64,9 @@ function slideAuto(){
     clearTimeout(slideTimeOut);
     if (slideAutoTime >= 1) {
       if (contentOpen === 0) {
+        slideIndex++;
         document.querySelector(".prevSlide span").innerHTML = "play_disabled";
-        // heroSlideShow(slideIndex++);
-        clearTimeout(slideTimeOut);
-  heroSlideShow(slideIndex += 1, slideAutoTime = 0);
+        heroSlideShow(clearTimeout(slideTimeOut));
       }
     }
     // console.log("slideIndex: " + slideIndex);
@@ -99,17 +78,16 @@ function slideAuto(){
      clearInterval(i);
      slideAuto();
    }
-   console.log("slideTimer" + slideTimer);
    return slideIndex;
  }, slideTimer);
 }
 
-
+var n = 0;
 function heroSlideShow() {
   var grandparentSlide = document.getElementById("slideContainer");
   var parentSlide = grandparentSlide.getElementsByClassName("heroSlide");
   for (var i = 0; i < parentSlide.length; i++) {
-    parentSlide[i].classList.remove("active", "nextSlideDiv");
+    parentSlide[i].classList.remove("active");
     numOfSlide = parentSlide.length;
     //document.querySelector(".active .heroContentBox").classList.remove("active");
   }
@@ -121,13 +99,6 @@ function heroSlideShow() {
   if (slideIndex < 1) {
     slideIndex = parentSlide.length;
   }
-
-  if(slideIndex === parentSlide.length){
-    parentSlide[0].classList.add("nextSlideDiv");
-  }
-  else{
-    parentSlide[slideIndex].classList.add("nextSlideDiv");
-  }
   parentSlide[slideIndex - 1].classList.add("active");
   setTimeout(() => {
     const dataStateVal = document.querySelector(".active .heroContentBox");
@@ -138,31 +109,24 @@ function heroSlideShow() {
   dataStateVale.dataset.stateVal = "off";
   document.getElementById("sCount").innerText = slideIndex;
   document.querySelector(".active .heroContentBox a").addEventListener("click", slideHeroLernMore);
-
-   //Add event to the learn more button under the slider content
-   document.querySelector(".active .heroContentBox a").addEventListener("click", slideHeroLernMore);
-   const defineSildeTime = document.querySelector(".nextSlideDiv .heroContentBox .animWrap h1").textContent;
-   const howManyWord = defineSildeTime.split(' ');
-   const beginWord = howManyWord[0];
-   if (beginWord.length < 2){
-     slideTimer = 7000;
-   }else{
-     slideTimer = (beginWord.length * 1000) + 3000;
-   }
  
     if (firstSlide === 1) {
       if(contentOpen === 0){
-      // slideTimeOut = setTimeout(heroSlideShow, slideTimer); // Change image every n seconds
+      slideTimeOut = setTimeout(heroSlideShow, slideTimer); // Change image every n seconds
       }
       // console.log("slideTimeOut a: " + slideTimeOut);
     }
   colorePick(clearTimeout(colorpicTimeOut));
-  miniDsp( wd = 0);
-  // textAfter();
+  miniDsp(clearTimeout(randomTimeout));
+  textAfter(clearTimeout(textTimeOut));
   
   // console.log("textTimeOut: " + textTimeOut);
   // console.log("slideTimer" + slideTimer);
   return false;
+
+  function newFunction() {
+    clearTimeout(randomTimeout);
+  }
 }
 
 
@@ -236,7 +200,7 @@ function colorePick() {
     document.querySelector(".active .slideMainImageWrap img").src = img.src;
   }
  if(firstSlide === 1){
-  colorpicTimeOut = setTimeout(colorePick, slideTimer);
+  colorpicTimeOut = setTimeout(colorePick, 7000);
  }
 
   return
@@ -244,47 +208,53 @@ function colorePick() {
 
 
 
-function miniDsp(n){
-  const str = document.querySelector(".active .heroContentBox .animWrap h1").textContent;
-  let wd = n;
-  const words = str.split(' ');
-  firstWord = words[0];
-  chars = firstWord.split('');
-   const t = setInterval(() => {
-     if(chars[wd] === undefined){
-      
-     }else{
-      latters = chars[wd];
-      console.log(wd, chars[wd]);
-     }
-     
-      wd++;
-    let j;
-    var Char = dspChars();
-    randomNum = Math.floor(Math.random() * (7 - 1)) + 1;
-    var pslides = document.querySelector(".active #miniDisplay");
-    var slides = pslides.getElementsByClassName("dspPixel");
-    for (var i = 0; i < slides.length; i++) {
-      slides[i].classList.remove("active");
-      for (j = 0; j < Chars.length; j++) {
-        slides[i].style.transform = ("scale(1)");
-        var nPixel = Chars[j];
-        // console.log(Chars);
-        slides[nPixel].classList.add("active");
-        slides[nPixel].style.transform = ("scale(" + randomNum + ")");
-        slides[nPixel].style.boxShadow = ("0px 0px " + randomNum + "px) #000 ");
-      }
+
+function miniDsp() {
+  var i;
+  let j;
+  var Char = dspChars();
+  randomNum = Math.floor(Math.random() * (7 - 1)) + 1;
+  var pslides = document.querySelector(".active #miniDisplay");
+  var slides = pslides.getElementsByClassName("dspPixel");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+    for (j = 0; j < Chars.length; j++) {
+      slides[i].style.transform = ("scale(1)");
+      var nPixel = Chars[j];
+      // console.log(Chars);
+      slides[nPixel].classList.add("active");
+      slides[nPixel].style.transform = ("scale(" + randomNum + ")");
+      slides[nPixel].style.boxShadow = ("0px 0px " + randomNum + "px) #000 ");
     }
-      clearTimeout(timeChars);
-    if( wd > firstWord.length){
-       clearInterval(t);
-     }
-return
-  },  1000 );
-  // randomTimeout = setTimeout(miniDsp, slideTimer);
+  }
+  randomTimeout = setTimeout(miniDsp, 1000);
+  return 0;
 }
 miniDsp();
 
+
+
+
+const delay = async (ms = 1000) => new Promise(resolve => setTimeout(resolve, ms))
+async function textAfter() {
+  const str = document.querySelector(".active .heroContentBox .animWrap h1").textContent;
+  // const str = "text font";
+  const words = str.split(' ');
+  firstWord = words[0];
+  chars = firstWord.split('');
+  slideTimer = firstWord.length * 1000;
+  for (let i = 0; i < firstWord.length; i += 1) {
+    latters = chars[i];
+    // console.log(chars[i]);
+    await delay(1000);
+    // clearTimeout(timeChars);
+    clearTimeout(timeChars);
+  }
+  timeChars = setTimeout(textAfter, slideTimer);
+  textAfter();
+  return slideTimer;
+}
+textAfter();
 
 
 

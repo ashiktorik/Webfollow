@@ -1,0 +1,8 @@
+{
+    "workbench.editor.autoLockGroups": {
+        "default": true,
+        "jsProfileVisualizer.cpuprofile.table": true
+    },
+    "workbench.settings.useSplitJSON": true,
+    "workbench.editor.decorations.colors": false
+}

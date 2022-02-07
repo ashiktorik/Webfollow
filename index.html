@@ -8,6 +8,8 @@
   <meta></meta>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <script src="js/site.js" defer></script>
+  <script src="/js/mini_dsp.js" defer></script>
   <nav class="navBar navBorder" id="navLight">
     <div class="nav-container nav-left" id="leftNav">
       <img src="" />
@@ -50,7 +52,7 @@
         <div class="heroSliderContainer">
           <div class="heroSliderContent" id="slideContainer">
 
-            <div class="heroSlide">
+            <div class="heroSlide active" data-slide-state="on">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -97,12 +99,16 @@
                     <div class="contentBlock" id="heroContentcard">
                       <div class="heroContentBox">
 
+                      <div class="animWrap"  data-state-val="off">
                         <h1>Inspiaron</h1>
+                      </div>
+                       <div class="animWrap"  data-state-val="off">
                         <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                           labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                           laboris
                           nisi ut aliquip</h4>
-                        <a class="btn btn-hero btn-on-image">
+                       </div>
+                        <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
                           <span class="btn-stl-1">
                             <div class="btn-b1"></div>
                             <div class="btn-b2"></div>
@@ -111,7 +117,7 @@
                           </span>
                           <span class="btn-text">Learn More</span>
                           Learn More
-                        </a>
+                        </a></div>
                       </div>
                     </div>
                   </div>
@@ -119,19 +125,19 @@
               </div>
 
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
 
-            <div class="heroSlide active">
+            <div class="heroSlide" data-slide-state="off">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -178,40 +184,44 @@
                     <div class="contentBlock" id="heroContentcard">
                       <div class="heroContentBox">
 
-                        <h1>Dreams</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris
-                          nisi ut aliquip</h4>
-                        <a class="btn btn-hero btn-on-image">
-                          <span class="btn-stl-1">
-                            <div class="btn-b1"></div>
-                            <div class="btn-b2"></div>
-                            <div class="btn-b3"></div>
-                            <div class="btn-b4"></div>
-                          </span>
-                          <span class="btn-text">Learn More</span>
-                          Learn More
-                        </a>
-                      </div>
+                        <div class="animWrap"  data-state-val="off">
+                          <h1>Dreams</h1>
+                        </div>
+                         <div class="animWrap"  data-state-val="off">
+                          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi ut aliquip</h4>
+                         </div>
+                          <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
+                            <span class="btn-stl-1">
+                              <div class="btn-b1"></div>
+                              <div class="btn-b2"></div>
+                              <div class="btn-b3"></div>
+                              <div class="btn-b4"></div>
+                            </span>
+                            <span class="btn-text">Learn More</span>
+                            Learn More
+                          </a></div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
 
-            <div class="heroSlide">
+            <div class="heroSlide" data-slide-state="off">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -256,42 +266,46 @@
                   </div>
                   <div class="col-6">
                     <div class="contentBlock" id="heroContentcard">
-                      <div class="heroContentBox">
+                      <div class="heroContentBox" data-state-val="off">
 
-                        <h1>Goal</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris
-                          nisi ut aliquip</h4>
-                        <a  class="btn btn-hero btn-on-image">
-                          <span class="btn-stl-1">
-                            <div class="btn-b1"></div>
-                            <div class="btn-b2"></div>
-                            <div class="btn-b3"></div>
-                            <div class="btn-b4"></div>
-                          </span>
-                          <span class="btn-text">Learn More</span>
-                          Learn More
-                        </a>
-                      </div>
+                        <div class="animWrap"  data-state-val="off">
+                          <h1>Goals</h1>
+                        </div>
+                         <div class="animWrap"  data-state-val="off">
+                          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi ut aliquip</h4>
+                         </div>
+                          <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
+                            <span class="btn-stl-1">
+                              <div class="btn-b1"></div>
+                              <div class="btn-b2"></div>
+                              <div class="btn-b3"></div>
+                              <div class="btn-b4"></div>
+                            </span>
+                            <span class="btn-text">Learn More</span>
+                            Learn More
+                          </a></div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
 
-            <div class="heroSlide">
+            <div class="heroSlide" data-slide-state="off">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -336,42 +350,46 @@
                   </div>
                   <div class="col-6">
                     <div class="contentBlock" id="heroContentcard">
-                      <div class="heroContentBox">
+                      <div class="heroContentBox" data-state-val="off">
 
-                        <h1>Nature</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris
-                          nisi ut aliquip</h4>
-                        <a  class="btn btn-hero btn-on-image">
-                          <span class="btn-stl-1">
-                            <div class="btn-b1"></div>
-                            <div class="btn-b2"></div>
-                            <div class="btn-b3"></div>
-                            <div class="btn-b4"></div>
-                          </span>
-                          <span class="btn-text">Learn More</span>
-                          Learn More
-                        </a>
-                      </div>
+                        <div class="animWrap"  data-state-val="off">
+                          <h1>Nature</h1>
+                        </div>
+                         <div class="animWrap"  data-state-val="off">
+                          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi ut aliquip</h4>
+                         </div>
+                          <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
+                            <span class="btn-stl-1">
+                              <div class="btn-b1"></div>
+                              <div class="btn-b2"></div>
+                              <div class="btn-b3"></div>
+                              <div class="btn-b4"></div>
+                            </span>
+                            <span class="btn-text">Learn More</span>
+                            Learn More
+                          </a></div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
 
-            <div class="heroSlide">
+            <div class="heroSlide" data-slide-state="off">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -416,42 +434,46 @@
                   </div>
                   <div class="col-6">
                     <div class="contentBlock" id="heroContentcard">
-                      <div class="heroContentBox">
+                      <div class="heroContentBox" data-state-val="off">
 
-                        <h1>Wheel</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris
-                          nisi ut aliquip</h4>
-                        <a  class="btn btn-hero btn-on-image">
-                          <span class="btn-stl-1">
-                            <div class="btn-b1"></div>
-                            <div class="btn-b2"></div>
-                            <div class="btn-b3"></div>
-                            <div class="btn-b4"></div>
-                          </span>
-                          <span class="btn-text">Learn More</span>
-                          Learn More
-                        </a>
-                      </div>
+                        <div class="animWrap"  data-state-val="off">
+                          <h1>Wheels</h1>
+                        </div>
+                         <div class="animWrap"  data-state-val="off">
+                          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi ut aliquip</h4>
+                         </div>
+                          <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
+                            <span class="btn-stl-1">
+                              <div class="btn-b1"></div>
+                              <div class="btn-b2"></div>
+                              <div class="btn-b3"></div>
+                              <div class="btn-b4"></div>
+                            </span>
+                            <span class="btn-text">Learn More</span>
+                            Learn More
+                          </a></div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
 
-            <div class="heroSlide">
+            <div class="heroSlide" data-slide-state="off">
               <div class="slideBg" id="slideBg"></div>
               <div class="slideContent">
                 <div class="row">
@@ -496,37 +518,41 @@
                   </div>
                   <div class="col-6">
                     <div class="contentBlock" id="heroContentcard">
-                      <div class="heroContentBox">
+                      <div class="heroContentBox" data-state-val="off">
 
-                        <h1>Darkest</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                          laboris
-                          nisi ut aliquip</h4>
-                        <a  class="btn btn-hero btn-on-image">
-                          <span class="btn-stl-1">
-                            <div class="btn-b1"></div>
-                            <div class="btn-b2"></div>
-                            <div class="btn-b3"></div>
-                            <div class="btn-b4"></div>
-                          </span>
-                          <span class="btn-text">Learn More</span>
-                          Learn More
-                        </a>
-                      </div>
+                        <div class="animWrap"  data-state-val="off">
+                          <h1>Darkest</h1>
+                        </div>
+                         <div class="animWrap"  data-state-val="off">
+                          <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi ut aliquip</h4>
+                         </div>
+                          <div class="animWrap"  data-state-val="off"><a class="btn btn-hero btn-on-image">
+                            <span class="btn-stl-1">
+                              <div class="btn-b1"></div>
+                              <div class="btn-b2"></div>
+                              <div class="btn-b3"></div>
+                              <div class="btn-b4"></div>
+                            </span>
+                            <span class="btn-text">Learn More</span>
+                            Learn More
+                          </a></div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="slideFullContent">
-                <div class="slideContentSection hero">
+               <div class="fullContentWrapper"> <div class="slideContentSection hero">
                   <div class="slideMainImageWrap">
                     <div class="slideBgOverlay"></div>
                     <img src="">
                   </div>
                 </div>
                 <div class="section"></div>
-                <div class="section"></div>
+                <div class="section"></div></div>
               </div>
 
             </div>
@@ -896,8 +922,7 @@
     <div class="bacground-overlay overlay">
       <div>
   </section>
-  <script src="js/site.js"></script>
-  <!-- <script src="/js/mini_dsp.js"></script> -->
+  
  
 </body>
 </html>
