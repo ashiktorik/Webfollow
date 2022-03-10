@@ -1,9 +1,8 @@
-var randomInterval, randomNum, randomTimeout, latters, firstWord, chars, slideTimeOut, textTimeOut, colorpicTimeOut, timeChars;
-var Chars;
-var slideTimeOut
-var contentOpen = 0;
-var slideTimer = 7000;
-var clicked = false;
+let randomInterval, randomNum, randomTimeout, latters, firstWord, chars, slideTimeOut, textTimeOut, colorpicTimeOut, timeChars;
+let Chars;
+let contentOpen = 0;
+let slideTimer = 7000;
+let clicked = false;
 
 
 
@@ -28,13 +27,13 @@ function slideController() {
   return contentOpen;
 }
 
-var nextSlid = document.getElementById("nextSlide").addEventListener("click", slideNext);
-var prevSlid = document.getElementById("prevSlide").addEventListener("click", slidePrevious);
+let nextSlid = document.getElementById("nextSlide").addEventListener("click", slideNext);
+let prevSlid = document.getElementById("prevSlide").addEventListener("click", slidePrevious);
 
-var slideIndex = 1;
-var firstSlide = 0;
-// var slideTimer = 7000;
-var slideAutoTime = 0;
+let slideIndex = 1;
+let firstSlide = 0;
+// let slideTimer = 7000;
+let slideAutoTime = 0;
 heroSlideShow(slideIndex);
 
 
@@ -108,9 +107,9 @@ function slideAuto() {
 
 
 function heroSlideShow() {
-  var grandparentSlide = document.getElementById("slideContainer");
-  var parentSlide = grandparentSlide.getElementsByClassName("heroSlide");
-  for (var i = 0; i < parentSlide.length; i++) {
+  let grandparentSlide = document.getElementById("slideContainer");
+  let parentSlide = grandparentSlide.getElementsByClassName("heroSlide");
+  for (let i = 0; i < parentSlide.length; i++) {
     parentSlide[i].classList.remove("active", "nextSlideDiv");
     numOfSlide = parentSlide.length;
     //document.querySelector(".active .heroContentBox").classList.remove("active");
@@ -175,7 +174,7 @@ function heroSlideShow() {
 colorePick();
 
 function colorePick() {
-  // var parentSlide = grandparentSlide.getElementsByClassName("active");
+  // let parentSlide = grandparentSlide.getElementsByClassName("active");
   const canvas = document.querySelector(".active #canvas"),
     preview = document.getElementById("slideBg");
   canvas.width = 2;
@@ -186,11 +185,11 @@ function colorePick() {
   draw();
 
   function draw() {
-    var ctx = document.querySelector(".active #canvas").getContext('2d');
-    var prevColor, colorRed, colorGreen, colorBlue, red, green, blue, alpha;
+    let ctx = document.querySelector(".active #canvas").getContext('2d');
+    let prevColor, colorRed, colorGreen, colorBlue, red, green, blue, alpha;
     let bgImg;
     let newColor;
-    var img = new Image();
+    let img = new Image();
     img.onload = function () {
       img.crossOrigin = "Anonymous";
       ctx.drawImage(img, 0, 0, 1, 5);
@@ -264,16 +263,16 @@ function bigPixels(n) {
   
       wd++;
       let j;
-      var Char = dspChars();
+      let Char = dspChars();
       randomNum = Math.floor(Math.random() * (7 - 1)) + 1;
-      var pslides = document.querySelector(".active #miniDisplay");
-      var slides = pslides.getElementsByClassName("dspPixel");
+      let pslides = document.querySelector(".active #miniDisplay");
+      let slides = pslides.getElementsByClassName("dspPixel");
     if(wd <= firstWord.length){
-      for (var i = 0; i < slides.length; i++) {
+      for (let i = 0; i < slides.length; i++) {
         slides[i].classList.remove("active");
         for (j = 0; j < Chars.length; j++) {
           slides[i].style.transform = ("scale(1)");
-          var nPixel = Chars[j];
+          let nPixel = Chars[j];
           // console.log(Chars);
           slides[nPixel].classList.add("active");
           slides[nPixel].style.transform = ("scale(" + randomNum + ")");

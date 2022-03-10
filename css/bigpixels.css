@@ -11,6 +11,17 @@
   --blue: #45AAF2;
 }
 
+
+.heroContentBox .animWrap h1 {
+  font-size: 5em;
+}
+
+.heroContentBox .animWrap h4 {
+  font-size: 18px;
+}
+
+
+
 .heroSiderWrapper {
   /* position: relative; */
   /* overflow: hidden; */
@@ -152,10 +163,10 @@
   visibility: visible;
 }
 
-.imageFrame {
+.imageFrame.hasRatio {
   position: relative;
-  max-width: 100%;
-  padding-top: 100%;
+  max-width: 95%;
+  padding-top: 95%;
   margin: auto;
   overflow: hidden;
 
@@ -170,8 +181,6 @@
   /* background: var(--blue); */
 
 }
-
-
 
 
 .dspFrame {
@@ -343,6 +352,7 @@
 .animWrap:nth-child(3)>* {
   transition-delay: 1.1s;
 }
+
 
 
 
@@ -729,6 +739,14 @@ span p4 b {
     margin: auto;
     max-width: 80%;
     text-align: end;
+  }
+
+  .heroContentBox .animWrap h1 {
+    font-size: 6.5em;
+  }
+
+  .heroContentBox .animWrap h4 {
+    font-size: 25px;
   }
 
 }
