@@ -253,7 +253,7 @@ function bigPixels(n) {
   firstWord = words[0];
   chars = firstWord.split('');
  do{
-    const t = setInterval(() => {
+ let t =  setInterval(() => {
       if (chars[wd] === undefined) {
   
       } else {

@@ -17,7 +17,66 @@
     /* color: var(--colorChange);
     filter: invert(1); */
   }
+
+
+  .navBar {
+    height: var(--navHeight);
+  }
+
+  .brandTitle {
+    color: var(--colorChange) !important;
+    filter: invert(100);
+  }
+
+  .navLink {
+    color: var(--dark);
+  }
   
+  #navSocialList svg {
+    fill: var(--dark);
+  }
+  
+  
+  .navManu li {
+    background: var(--dark);
+    background: var(--colorChange);
+    filter: invert(1);
+  }
+
+  
+  .clicked li.menuContainerHam {
+    background-color: var(--accentColor);
+    filter: saturate(10);
+    backdrop-filter: blur(5px);
+  }
+  
+  
+  .menuContainer {
+    background: var(--white);
+  }
+  
+
+  
+  a.menu-items-box hr {
+
+    filter: invert(1);
+    mix-blend-mode: exclusion;
+  }
+  
+  
+  /*  ---- nav menu close button----*/
+  
+  .nav-close li {
+    background-color: var(--dark);
+  }
+  
+  .openManu .nav-close li {
+    background-color: var(--dark);
+  }
+
+
+  
+
   .geoTileRow {
     display: -webkit-inline-box;
     width: 100%;
@@ -44,7 +103,7 @@
     /*   display:none; */
   }
   
-  .geoTile:after {
+  /* .geoTile:after {
     content: '';
     position: absolute;
     width: calc(100% - 2px);
@@ -54,7 +113,7 @@
     background: var(--orange);
     z-index: 999;
     border-radius: 300px;
-  }
+  } */
   
   .geoTile.geotileActive {
     /*   box-shadow:4px 4px 20px rgba(255,0,0, 1); */
@@ -321,6 +380,15 @@
     .slide-title-wrapper h1 {
       font-size: 7vh;
     }
+
+    .navLink {
+      color: var(--colorChange) !important;
+      filter: invert(100);
+    }
+  
+    #navSocialList svg {
+      fill: var(--colorChange) !important;
+    }
   }
   
   @media (min-width:1080px) {
@@ -334,6 +402,7 @@
       font-size: 3.8vw;
     }
   }
+
   
   @keyframes dooropen {
     0% {
